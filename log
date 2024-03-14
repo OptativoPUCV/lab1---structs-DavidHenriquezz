@@ -110,3 +110,31 @@ Thu 14 Mar 2024 08:55:40 PM UTC:
  tests:  0|4
 total_score: 30/70
 850a2d6
+Thu 14 Mar 2024 08:57:43 PM UTC: 
+ exercises.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:1:
+exercises.c: In function ‘filterEvenNumbers’:
+exercises.c:60:32: error: passing argument 1 of ‘realloc’ makes pointer from integer without a cast [-Werror=int-conversion]
+   60 |       *arr_par = (int*)realloc(*arr_par, (size_par + 1) * sizeof(int));
+      |                                ^~~~~~~~
+      |                                |
+      |                                int
+In file included from exercises.c:4,
+                 from test.c:1:
+/nix/store/4pqv2mwdn88h7xvsm7a5zplrd8sxzvw0-glibc-2.35-163-dev/include/stdlib.h:551:29: note: expected ‘void *’ but argument is of type ‘int’
+  551 | extern void *realloc (void *__ptr, size_t __size)
+      |                       ~~~~~~^~~~~
+In file included from test.c:1:
+exercises.c:60:16: error: assignment to ‘int’ from ‘int *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   60 |       *arr_par = (int*)realloc(*arr_par, (size_par + 1) * sizeof(int));
+      |                ^
+exercises.c:61:7: error: invalid type argument of unary ‘*’ (have ‘int’)
+   61 |       *arr_par[size_par] = arr[i];
+      |       ^~~~~~~~~~~~~~~~~~
+exercises.c:66:10: error: returning ‘int’ from a function with return type ‘int *’ makes pointer from integer without a cast [-Werror=int-conversion]
+   66 |   return *arr_par;
+      |          ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+030c415
