@@ -18,3 +18,20 @@ In file included from /nix/store/4pqv2mwdn88h7xvsm7a5zplrd8sxzvw0-glibc-2.35-163
       |         ^~~~~~~~
 Compilation failed
 d0f3528
+Thu 14 Mar 2024 08:36:27 PM UTC: 
+ exercises.c | 51 +++++++++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 47 insertions(+), 4 deletions(-)
+In file included from test.c:1:
+exercises.c: In function ‘filterEvenNumbers’:
+exercises.c:71:10: error: function returns address of local variable [-Werror=return-local-addr]
+   71 |   return arr_par;
+      |          ^~~~~~~
+exercises.c:67:14: error: array subscript <unknown> is outside array bounds of ‘int[<Ucc60>]’ [-Werror=array-bounds]
+   67 |       arr_par[*newSize] = arr[i];
+      |       ~~~~~~~^~~~~~~~~~
+exercises.c:54:7: note: while referencing ‘arr_par.64’
+   54 |   int arr_par[total];
+      |       ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+087a7d9
