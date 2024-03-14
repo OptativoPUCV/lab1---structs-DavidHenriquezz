@@ -72,8 +72,34 @@ Descripción: Escribe una función que tome dos arreglos
 ordenados de menor a mayor y sus tamaños, y luego fusione estos dos
 arreglos en un tercer arreglo también ordenado de menor a mayor.
 */
+
+int compare(const void *a, const void *b){
+  int *PtrA = (int *)a;
+  int *PtrB = (int *)b;
+
+  if (PtrA > PtrB) return 1;
+  return 0;
+}
+
 void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,
-                       int result[]) {}
+                       int result[]) {
+
+  int arr_ordenado[size1 + size2];
+
+  for (int i= 0 ; i < size1 ; i++){
+    arr_ordenado[i] = arr1[i];
+  }
+  for (int i = size1 ; i < size1 + size2 ; i++){
+    arr_ordenado[i] = arr2[i - size1];
+  }
+
+  qsort(arr_ordenado, size1 + size2, sizeof(int), compare);
+
+  for (int i = 0 ; i < size1 + size2 ; i++){
+    result[i] = arr_ordenado[i];
+  }
+  
+  }
 
 /*
 Ejercicio 5: Comprobación de Ordenación
