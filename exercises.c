@@ -84,22 +84,16 @@ int compare(const void *a, const void *b){
 void mergeSortedArrays(int arr1[], int size1, int arr2[], int size2,
                        int result[]) {
 
-  int arr_ordenado[size1 + size2];
-
   for (int i= 0 ; i < size1 ; i++){
-    arr_ordenado[i] = arr1[i];
+    result[i] = arr1[i];
   }
   for (int i = size1 ; i < size1 + size2 ; i++){
-    arr_ordenado[i] = arr2[i - size1];
+    result[i] = arr2[i - size1];
   }
 
-  qsort(arr_ordenado, size1 + size2, sizeof(int), compare);
-
-  for (int i = 0 ; i < size1 + size2 ; i++){
-    result[i] = arr_ordenado[i];
-  }
+  qsort(result, size1 + size2, sizeof(int), compare);
   
-  }
+}
 
 /*
 Ejercicio 5: Comprobación de Ordenación
