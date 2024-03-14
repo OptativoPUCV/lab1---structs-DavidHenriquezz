@@ -48,27 +48,21 @@ los números pares del arreglo original.
 newsize apunta a una dirección válida que no ha sido inicializada con nigún valor específico. 
 *newsize debe almacenar el tamaño del nuevo arreglo que se retorna.
 */
+
 int *filterEvenNumbers(int arr[], int size, int *newSize) {
 
-  int total = 0;
-  int arr_par[total];
-
-  for (int i = 0 ; i < size ; i++){
-
-    if (arr[i] % 2 == 0){
-      total++;
-    }
-  }
+  int * arr_par = NULL;
   
 
   for (int i = 0 ; i < size ; i++){
 
     if (arr[i] % 2 == 0){
+      arr_par = (int*)realloc(arr_par, *newSize + 1);
       arr_par[*newSize] = arr[i];
     }
     (*newSize)++;
   }
-  return arr_par[];
+  return arr_par;
 }
 
 /*

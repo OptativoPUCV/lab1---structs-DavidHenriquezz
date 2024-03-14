@@ -52,3 +52,20 @@ exercises.c:72:1: error: control reaches end of non-void function [-Werror=retur
 cc1: all warnings being treated as errors
 Compilation failed
 6c0f6d1
+Thu 14 Mar 2024 08:40:35 PM UTC: 
+ exercises.c | 13 +++----------
+ 1 file changed, 3 insertions(+), 10 deletions(-)
+Thu 14 Mar 2024 08:41:30 PM UTC: 
+ exercises.c | 16 +++++-----------
+ 1 file changed, 5 insertions(+), 11 deletions(-)
+test.c: In function ‘test_filterEvenNumbers’:
+test.c:151:19: error: implicit declaration of function ‘filterEvenNumbers’; did you mean ‘test_filterEvenNumbers’? [-Werror=implicit-function-declaration]
+  151 |     int *result = filterEvenNumbers(arr, size, &newSize);
+      |                   ^~~~~~~~~~~~~~~~~
+      |                   test_filterEvenNumbers
+test.c:151:19: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+Thu 14 Mar 2024 08:42:10 PM UTC: 
+ exercises.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
+ tests:  0|0
+7373f25
