@@ -35,3 +35,20 @@ exercises.c:54:7: note: while referencing ‘arr_par.64’
 cc1: all warnings being treated as errors
 Compilation failed
 087a7d9
+Thu 14 Mar 2024 08:37:24 PM UTC: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:1:
+exercises.c: In function ‘filterEvenNumbers’:
+exercises.c:71:18: error: expected expression before ‘]’ token
+   71 |   return arr_par[];
+      |                  ^
+exercises.c:54:7: error: variable ‘arr_par’ set but not used [-Werror=unused-but-set-variable]
+   54 |   int arr_par[total];
+      |       ^~~~~~~
+exercises.c:72:1: error: control reaches end of non-void function [-Werror=return-type]
+   72 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+6c0f6d1
