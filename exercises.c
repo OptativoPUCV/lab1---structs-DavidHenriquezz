@@ -77,7 +77,7 @@ int compare(const void *a, const void *b){
   int *PtrA = (int *)a;
   int *PtrB = (int *)b;
 
-  if (PtrA > PtrB) return 1;
+  if (*PtrA > *PtrB) return 1;
   return 0;
 }
 
