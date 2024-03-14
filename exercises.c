@@ -101,7 +101,44 @@ Descripción: Escribe una función que tome un arreglo y su tamaño,
 y luego devuelva 1 si el arreglo está ordenado en orden ascendente,
   0 si no está ordenado, y -1 si está ordenado en orden descendente.
 */
-int checkSorted(int arr[], int size) { return -2; }
+
+int compare_rev(const void *a, const void *b){
+  int *PtrA = (int *)a;
+  int *PtrB = (int *)b;
+
+  if (*PtrA < *PtrB) return 1;
+  return 0;
+}
+
+int esDes (int arr[], int size, int arr_ordenado[]){
+  
+  qsort(arr_ordenado, size, sizeof(int), compare_rev);
+
+  for (int i = 0 ; i < size ; i++){
+    if (arr[i] != arr_ordenado[i]){
+      return 0;
+    }
+  }
+  return 1;
+}
+
+int checkSorted(int arr[], int size) {
+  
+  int arr_comp[size];
+
+  for (int i = 0 ; i < size ; i++){
+    arr_comp[i] = arr[i];
+  }
+  qsort(arr_comp, size, sizeof(int), compare);
+
+  for (int i = 0 ; i < size ; i++){
+    if (arr_comp[i] != arr[i]){
+      if (esDes(arr, size, arr_comp) == 1) return -1;
+      else return 0;
+    }
+  }
+  return 1;
+}
 
 /*
 Ejercicio 6: Información de una Biblioteca
